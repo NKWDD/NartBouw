@@ -53,7 +53,6 @@
             <!-- Language Selector Dropdown -->
             <div class="language-selector">
               <select id="language-selector" onchange="changeLanguage()">
-                <option value="">EN</option>
                 <option value="index.html">EN</option>
                 <option value="index-nl.html">NL</option>
                 <option value="index-pl.html">PL</option>
@@ -71,16 +70,24 @@
     function changeLanguage() {
       const selector = document.getElementById("language-selector");
       const selectedValue = selector.value;
-      if (selectedValue) {
-        window.location.href = selectedValue;
+  
+      // Handle the default language (English)
+      if (selectedValue === "index.html") {
+        window.location.href = "/"; // Redirect to the root domain
+      } else {
+        window.location.href = selectedValue; // Redirect to the selected language page
       }
     }
-
+  
     // Set the default language option based on the current page
     const currentPage = window.location.pathname.split("/").pop();
     const selector = document.getElementById("language-selector");
     if (selector) {
-      selector.value = currentPage;
+      if (currentPage === "" || currentPage === "index.html") {
+        selector.value = "index.html"; // Set the selector to English for the root domain
+      } else {
+        selector.value = currentPage; // Set the selector to the current language page
+      }
     }
   </script>
 
