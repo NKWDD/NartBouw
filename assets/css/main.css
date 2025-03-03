@@ -16,6 +16,47 @@
   --font-secondary: "Work Sans", sans-serif;
 }
 
+    /* Style for the language selector container */
+    .language-selector {
+      position: relative;
+      display: inline-block;
+      font-family: var(--font-primary);
+    }
+
+    /* Style for the select dropdown */
+    .language-selector select {
+      appearance: none; /* Remove default arrow */
+      -webkit-appearance: none; /* Remove default arrow for Safari */
+      -moz-appearance: none; /* Remove default arrow for Firefox */
+      background-color: transparent;
+      border: none; /* Border color */
+      border-radius: 5px; /* Rounded corners */
+      padding: 8px 30px 8px 20px; /* Padding */
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      outline: none; /* Remove focus outline */
+      
+    }
+    
+    /* Style for the dropdown arrow */
+    .language-selector::after {
+      content: "▼";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      pointer-events: none; /* Ensure clicks go to the select element */
+      color: var(--color-primary);
+      font-size: 12px;
+    }
+
+    /* Style for the options */
+    .language-selector option {
+      background-color: #fff; /* White background for options */
+      color: #000; /* Black text for options */
+    }
+
 /* Colors */
 :root {
   --color-default: #364d59;
